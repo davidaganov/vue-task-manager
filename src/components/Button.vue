@@ -1,0 +1,43 @@
+<template>
+  <button
+    type="button"
+    class="btn"
+  >
+    <slot />
+  </button>
+</template>
+
+<style scoped lang="scss">
+.btn {
+  display: inline-block;
+  border: 0.2rem solid var(--color-accent);
+  color: var(--color-accent);
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:not(&:disabled) {
+    &:hover {
+      transform: translateY(-0.15rem);
+      box-shadow: 0.2rem 0.2rem 0 0.01rem var(--color-accent);
+    }
+
+    &:focus-visible {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  @media (min-width: 576px) {
+    padding: 1.5rem 2.5rem;
+    font: 400 1.4rem/1.9rem var(--second-font);
+  }
+  @media (max-width: 575px) {
+    padding: 1.5rem 1.5rem;
+    font: 400 1rem/1.5rem var(--second-font);
+  }
+}
+</style>

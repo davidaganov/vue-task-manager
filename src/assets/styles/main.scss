@@ -1,0 +1,118 @@
+//---- Base
+@import "./__reset", "./__variables", "./__fonts";
+
+html,
+body {
+  height: 100%;
+  font-family: var(--main-font);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--color-black);
+}
+
+*::selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.inner {
+  width: 100%;
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+  @media (max-width: 1460px) and (min-width: 375px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  @media (max-width: 375px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.title {
+  font-weight: normal;
+  text-transform: uppercase;
+  color: var(--color-white);
+  @media (min-width: 576px) {
+    font: bold 2.5rem/3rem var(--second-font);
+  }
+  @media (max-width: 575px) {
+    font: bold 1.7rem/2.2rem var(--second-font);
+  }
+  &:focus-visible {
+    color: var(--color-accent);
+    opacity: 1;
+  }
+}
+
+.input {
+  border: 0.2rem solid var(--color-white-700);
+  padding: 0 1rem;
+  font: 400 1.6rem var(--main-font);
+  color: var(--color-white);
+  &:focus-visible {
+    border-color: var(--color-accent);
+  }
+}
+
+.input--error {
+  border: 0.2rem solid tomato;
+}
+
+.error-text {
+  position: absolute;
+  font: 400 1.2rem var(--main-font);
+  color: var(--color-white);
+  top: -2rem;
+}
+
+p,
+li,
+a {
+  @media (min-width: 769px) {
+    font: normal 1.8rem/2.6rem var(--main-font);
+  }
+  @media (max-width: 768px) {
+    font: normal 1.6rem/2.4rem var(--main-font);
+  }
+}
+
+.inline-link {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.2rem;
+  border: 0.1rem solid transparent;
+  color: var(--color-white);
+  transition: all 0.3s;
+  &:focus-visible {
+    border: 0.1rem solid var(--color-white);
+    &:hover {
+      background-color: var(--color-white);
+      color: var(--color-black);
+    }
+  }
+  @media (min-width: 576px) {
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0.1rem;
+      background-color: var(--color-white);
+      transform-origin: right bottom;
+      transform: scaleX(0);
+      transition: transform 0.3s ease 0s;
+    }
+    &:hover:not(:focus-visible)::after {
+      transform-origin: left bottom;
+      transform: scaleX(1);
+    }
+  }
+}
